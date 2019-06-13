@@ -1,2 +1,2 @@
 # Sklearn-ML
-Testing the Sk-learn Machine learning models
+In this repository we will test the famous Machine learning library scikit-learn, based on cheat sheet provided by sklearn
