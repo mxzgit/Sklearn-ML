@@ -68,3 +68,22 @@ def extract_feature(mail_dir):
 TRAIN_DIR = "../Data/train-mails"
 TEST_DIR  = "../Data/test-mails"
 
+dictionary = make_Dictionary(TEST_DIR)
+
+print("reading and processing emails from file.")
+features_matrix, labels = extract_feature(TRAIN_DIR)
+test_feature_matrix, test_labels = extract_feature(TEST_DIR)
+
+model = svm.SVC()
+
+print("Training model.")
+# train model
+features_matrix = features_matrix[:len(features_matrix)/10]
+labels = labels[:len(labels)/10]
+model.fit(features_matrix, labels)
+
+predicted_labels = model.predict(test_feature_matrix)
+
+print("FINISHED classifying. accuracy score : ")
+print(accuracy_score(test_labels, predicted_labels))
+
