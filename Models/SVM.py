@@ -39,6 +39,9 @@ class Support_vector_machine:
         b_range_multiple = 5
         b_multiple = 5
         latest_optimum = self.max_feature_value * 10
+
+        for step in step_sizes:
+            w = np.array([latest_optimum,latest_optimum])
     def predict(self,features):
         classification = np.sign(np.dot(np.array(features),self.w)+self.b)
         return classification
